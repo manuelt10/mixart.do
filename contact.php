@@ -45,14 +45,11 @@
 
 	/* menu items' hover animation */
 
-	var /* dataColor = $('.active').data('color'), */
-		itmDist,
+	var itmDist,
 		currItm = $('.active').data('sec'),
 		baseWidth = 96,
 		itmBGPos = (currItm-1)*baseWidth,
 		origPos = itmBGPos;
-
-		/* $('.container').css('background', dataColor); */
 
 		$('.itmBg').css('left', itmBGPos);
 
