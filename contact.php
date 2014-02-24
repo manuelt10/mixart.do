@@ -94,75 +94,7 @@
 
 	</script>
 	
-	<!--
-<script>
-		$('.itm').click(function(){
-		
-			var dispSec = $(this).data('sec');
-			var actColor = $(this).data('color');
-			
-			if($('.shown').hasClass('cont'+dispSec+'')){
-				
-			}
-			
-			else{
-				if(dispSec == "1"){
-					$('.Col').removeClass('Col');
-				}
-				
-				else{
-					$('.logo').addClass('Col');
-					$('.itmBg').addClass('Col');
-					$('.menuWrap').addClass('Col');
-					$('.itm').addClass('Col');
-				}
-				
-				$('.shown').addClass('decolor');
-				
-				$('.cont' + dispSec).addClass('shown');
-				
-				$('.container').children('.sections').each(function(){
-					
-					var dataID = $(this).data('id');
-					
-					if(dataID < dispSec){
-						$(this).addClass('top');
-						$(this).removeClass('shown');
-					}
-					
-					else if(dataID > dispSec){
-						$(this).removeClass('top');
-						$(this).removeClass('shown');
-					}
-					
-				})
-				
-				/*
-if($('.'+dispSec).hasClass('top')){
-					
-					$('.shown').removeClass('shown');
-					$('.top').addClass('shown');
-					$('.top').removeClass('top');
-				}
-				
-				else{
-					$('.top').removeClass('top');
-					$('.shown').addClass('top');
-					$('.shown').removeClass('shown');
-					$('.'+dispSec).addClass('shown');
-				}
-*/
-			}
-			
-			
-		
-		});
-		
-		$('.itm').mouseup(function(){
-			$('.decolor').removeClass('decolor');
-		});
-	</script>
--->
+
 	
 </body>
 
