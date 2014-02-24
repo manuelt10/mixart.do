@@ -1,0 +1,2 @@
+[23-Feb-2014 20:02:46 America/New_York] PHP Fatal error:  Call to undefined method user::setAttr1() in /home/jennyoel/public_html/mixart/mix/classes/user.php on line 143
+[23-Feb-2014 20:02:48 America/New_York] PHP Fatal error:  Call to undefined method user::setAttr1() in /home/jennyoel/public_html/mixart/mix/classes/user.php on line 143
