@@ -74,7 +74,7 @@
 
 
 	<script>
-		/* shows elements at first load */
+		/* shows elements at first load with animation*/
 
 		setTimeout(function(){
 			$('.toColBar').css('top', 0);
