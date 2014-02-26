@@ -1,5 +1,7 @@
 <!-- <script type="text/javascript" src="scripts/jquery-1.10.2.js"></script> -->
-
+<?php 
+$project_data = $db->selectRecord('project', NULL, array('idprojects' => $_GET["id"]));
+?>
 <style>
 	.actualImage{
 			width: 565px;
@@ -15,14 +17,30 @@
 		}
 </style>
 
-<form action="#" method="post" enctype="multipart/form-data">
+<form action="functions/administrator/projects/upload_image.php" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="idproject" value="<?php echo $_GET["id"]; ?>">
 	<input type="file" name="projectImage" class="imageUploader">
 	<div class="actualImage projImage">
 		
 	</div>
-	<input type="hidden" class="coorX" name="coordBannerX" value="0">
-	<input type="hidden" class="coorY" name="coordBannerY" value="0">
+	<input type="hidden" class="coorX" name="x" value="0">
+	<input type="hidden" class="coorY" name="y" value="0">
+	<button type="submit">Send</button>
 </form>
+
+<div>
+	<?php 
+	$projectImages = $db->selectRecord('project_images',NULL,array('idproject' => $_GET["id"]));
+	foreach($projectImages->data as $pi)
+	{
+		?>
+		<div>
+			<img src="images/<?php echo $project_data->data[0]->folder ?>/thumb400/<?php echo $pi->image; ?>">
+		</div>
+		<?php
+	}
+	?>
+</div>
 
 <script type="text/javascript">
 	//Function to create image preview

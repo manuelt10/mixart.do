@@ -9,36 +9,45 @@ function autoLoader($class)
 }
 spl_autoload_register('autoLoader');
 
-if(!empty($session["iduser"]))
+
+
+if(!empty($session["iduser"]) and !empty($_POST["idproject"]))
 {
+	
+	/*Creation of variables and objects*/
 	$fM = new fileManager();
 	$db = new mysqlManager();
 	$sM = new stringManager();
-	list($width, $height) = getimagesize($_FILES['image']['tmp_name']);
-	if($width > 400 and $height > 400)
+	$extensions = Array('jpg', 'png', 'jpeg');
+	$minWidth = 565;
+	$minHeight = 465;
+	$path = '../../../images/';
+	$ext = pathinfo($_FILES['projectImage']['name'], PATHINFO_EXTENSION);
+	$file = $_FILES['projectImage'];
+	$imageName = $sM->generateFullRandomCode();
+	$project_data = $db->selectRecord('project', NULL, array('idprojects' => $_POST["idproject"]));
+	list($width, $height) = getimagesize($file['tmp_name']);
+	/*Needs to be an image*/
+	if(in_array($ext, $extensions))
 	{
-		$ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-		$extensions = Array('jpg', 'png', 'jpeg');
-		if(in_array($ext, $extensions))
+		/*Image can't be less than the minWidth and minHeight*/
+		if($width >= $minWidth and $height >= $minHeight)
 		{
-			$imageName = $sM->generateFullRandomCode();
-			if($fM->fileUpload($_FILES['image'], '../../../images/projects/' , $imageName))
-		    {
-		        	
-	        	$fM->createThumbnail('../../../images/projects/', $imageName . '.' . $ext, '../../../images/projects/thumb400/', 400);
-				$fM->createThumbnail('../../../images/projects/thumb400/', $imageName . '.' . $ext, '../../../images/projects/thumb100/', 100);
+			/*If crop is executed*/
+			if($fM->cropImage($path . $project_data->data[0]->folder . '/' , $file, $imageName, $_POST["x"], $_POST["y"], $minWidth, $minHeight))
+			{
+				/*Creation of thumbnails*/
+				$fM->createThumbnail($path . $project_data->data[0]->folder . '/', $imageName . '.' . $ext, $path . $project_data->data[0]->folder . '/thumb400/', 400);
+				$fM->createThumbnail($path . $project_data->data[0]->folder . '/thumb400/', $imageName . '.' . $ext, $path . $project_data->data[0]->folder . '/thumb100/', 100);
+				
+				/*Database insertion*/
 				$records = Array(
 					'image' => $imageName . '.' . $ext,
-					'created_by' => $session["iduser"]
+					'created_by' => $session["iduser"],
+					'idproject' => $_POST["idproject"]
 				);
 				$db->insertRecord('project_images',$records);
-				$record = $db->selectRecord('project_images', Array('image'), Array('idproject' => null));
-				foreach($record->data as $im)
-				{
-					?>
-					<img src="images/projects/thumb400/<?php echo $im->image ?>">
-					<?php
-				}
+				header('Location: ' . $_SERVER["HTTP_REFERER"]);
 			}
 		}
 	}
@@ -46,4 +55,5 @@ if(!empty($session["iduser"]))
 	
 	
 }
+header('Location: ' . $_SERVER["HTTP_REFERER"]);
 ?>
