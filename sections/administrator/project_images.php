@@ -1,4 +1,4 @@
-/* <script type="text/javascript" src="scripts/jquery-1.10.2.js"></script> */
+<!-- <script type="text/javascript" src="scripts/jquery-1.10.2.js"></script> -->
 
 <style>
 	.actualImage{
@@ -13,19 +13,54 @@
 		.actualImage img{
 			position: relative;
 		}
-		
-		
 </style>
-<div>
+
+<form action="#" method="post" enctype="multipart/form-data">
+	<input type="file" name="projectImage" class="imageUploader">
 	<div class="actualImage projImage">
-		<img src="images/dreamcher/Dreamcher.png">
+		
 	</div>
 	<input type="hidden" class="coorX" name="coordBannerX" value="0">
-	<input type="hidden" class="coorY" name="coordBannerY" value="0"> 
-</div>
+	<input type="hidden" class="coorY" name="coordBannerY" value="0">
+</form>
 
+<script type="text/javascript">
+	//Function to create image preview
+	function readURL(input) {
 
-<script> //draggable image repositionator (pending trademark)
+	    if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+			
+	        reader.onload = function (e) {
+	        	var image = new Image();
+				image.src = e.target.result;
+				
+				image.onload = function(){
+					if((this.width >= 565) && (this.height >= 465))
+		        	{
+			            $('.projImage').html('<img src="' + e.target.result + '">');
+			        }
+			        else
+			        {
+			        	alert('The image dimension need to be 565x465.');
+			        	var imageUploader = $('.imageUploader');
+			        	imageUploader.replaceWith( imageUploader = imageUploader.clone( true ) );
+			        	$('.projImage').empty();
+			        	$('.coorX').val(0);
+			        	$('.coorY').val(0);
+			        }
+				}
+	        	
+	        }
+	
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+	$(".imageUploader").change(function(){
+	    readURL(this);
+	});
+</script>
+<script type="text/javascript"> //draggable image repositionator (pending trademark)
 	var draggy  = $('.projImage img'),
 		clickCoordX,
 		clickCoordY,

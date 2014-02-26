@@ -1,4 +1,4 @@
-<script src="scripts/jquery.form.min.js" type="text/javascript"></script>
+
 <script src="scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 <form method="post" action="<?php echo htmlspecialchars('functions/administrator/projects/create_project.php');?>" enctype="multipart/form-data">
 	<fieldset>
