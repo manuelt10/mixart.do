@@ -35,13 +35,28 @@ $project_data = $db->selectRecord('project', NULL, array('idprojects' => $_GET["
 	{
 		?>
 		<div>
-			<img src="images/<?php echo $project_data->data[0]->folder ?>/thumb400/<?php echo $pi->image; ?>">
+			<input type="hidden" class="idproject_image" value="<?php echo $pi->idproject_image; ?>">
+			<img src="images/<?php echo $project_data->data[0]->folder ?>/thumb400/<?php echo $pi->image; ?>" class="projectImage">
 		</div>
 		<?php
 	}
 	?>
 </div>
 
+<script>
+	$('.projectImage').click(function(){
+		var idproj = $(this).siblings('.idproject_image').val();
+		$(this).parent('div').remove();
+		$.ajax({
+			type : "POST",
+			url : "functions/administrator/projects/remove_image.php",
+			data : {id : idproj, idproject : <?php echo $_GET["id"] ?>}
+		}).done(function(html)
+		{
+			alert(html);
+		})
+	});
+</script>
 <script type="text/javascript">
 	//Function to create image preview
 	function readURL(input) {
