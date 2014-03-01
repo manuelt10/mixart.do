@@ -24,6 +24,18 @@
 		?>
 	</div>
 	<?php echo $session["error"]["projectUser"]; ?><br>
+	<label>Project Type:</label>
+	<select name="projectType">
+		<?php 
+		$proj_type = $db->selectRecord('project_type');
+		foreach($proj_type->data as $pt)
+		{
+			?>
+			<option value="<?php echo $pt->idproject_type ?>"><?php echo $pt->description; ?></option>
+			<?php
+		}
+		?>
+	</select>
 	<label>Status:</label><input type="checkbox" name="projectStatus" value="1">
 	<br>
 	<button type="submit">Create Project</button>
