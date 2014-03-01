@@ -95,12 +95,14 @@ if(!empty($_POST))
 		 /*Records for project table*/
 		$records = array(
 			'name' => $projectName,
+			'idproject_type' => $_POST["projectType"],
 			'folder' => $projectFolder,
 			'logo' => $imageName,
 			'description' => $projectDescription,
 			'note' => $projectNote,
 			'status' => $status,
 			'created_by' => $_SESSION["iduser"]
+			
 		);
 		$insert = $db->insertRecord("project", $records);
 		$lastid = $insert->lastid;
