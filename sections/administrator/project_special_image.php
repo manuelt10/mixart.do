@@ -1,7 +1,7 @@
 <style>
 	.actualImage{
-			width: 565px;
-			height: 465px;
+			width: 480px;
+			height: 600px;
 			position: relative;
 			overflow: hidden;
 			border: dashed 1px #AAA;
@@ -14,8 +14,10 @@
 </style>
 
 
-<form action="functions/administrator/projects/upload_image.php" method="post" enctype="multipart/form-data">
+<form action="#" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="idproject" value="<?php echo $_GET["id"]; ?>">
+	<input type="text" name="imageWidth" value="1400" readonly>
+	<input type="number" name="imageHeight" class="imageHeight" value="1800" min="1800" max="2700"> 
 	<input type="file" name="projectImage" class="imageUploader">
 	<div class="actualImage projImage">
 		
@@ -26,6 +28,12 @@
 </form>
 
 
+<script>
+	$('.imageHeight').on('change keyup', function(){
+		$('.actualImage').empty();
+		$('.actualImage').css('height',$(this).val() / 3);
+	})
+</script>
 <script type="text/javascript">
 	//Function to create image preview
 	function readURL(input) {
@@ -36,15 +44,15 @@
 	        reader.onload = function (e) {
 	        	var image = new Image();
 				image.src = e.target.result;
-				
+				var imageHeight = $('.imageHeight').val();
 				image.onload = function(){
-					if((this.width >= 565) && (this.height >= 465))
+					if((this.width >= 1440) && (this.height >= imageHeight))
 		        	{
-			            $('.projImage').html('<img src="' + e.target.result + '">');
+			            $('.projImage').html('<img src="' + e.target.result + '" width="' + (this.width/3) + '">');
 			        }
 			        else
 			        {
-			        	alert('The image dimension need to be 565x465.');
+			        	alert('The image dimension need to be 1440x' + imageHeight + '.');
 			        	var imageUploader = $('.imageUploader');
 			        	imageUploader.replaceWith( imageUploader = imageUploader.clone( true ) );
 			        	$('.projImage').empty();

@@ -27,14 +27,15 @@ require_once('templates/admhea.php');
 	<?php 
 	switch($_GET["form"])
 	{
-		case 'userspanel' : 		require_once('sections/administrator/users_panel.php'); 			break;
-		case 'newuser' : 			require_once('sections/administrator/new_user.php'); 				break;
-		case 'projectpanel' : 		require_once('sections/administrator/projects_panel.php'); 			break;
-		case 'newproject' : 		require_once('sections/administrator/new_project.php'); 			break;
-		case 'add_img_project' : 	require_once('sections/administrator/project_images.php'); 			break;
-		case 'profile' : 			require_once('sections/administrator/profile/profile.php'); 		break;
-		case 'change_profile' : 	require_once('sections/administrator/profile/change_profile.php');	break;
-		default : 					require_once('sections/administrator/users_panel.php'); 			break;
+		case 'userspanel' : 		require_once('sections/administrator/users_panel.php'); 					break;
+		case 'newuser' : 			require_once('sections/administrator/new_user.php'); 						break;
+		case 'projectpanel' : 		require_once('sections/administrator/projects_panel.php'); 					break;
+		case 'newproject' : 		require_once('sections/administrator/new_project.php'); 					break;
+		case 'add_img_project' : 	require_once('sections/administrator/project_images.php'); 					break;
+		case 'esp_proj_img' : 		require_once('sections/administrator/project_special_image.php');			break;
+		case 'profile' : 			require_once('sections/administrator/profile/profile.php'); 				break;
+		case 'change_profile' : 	require_once('sections/administrator/profile/change_profile.php');			break;
+		default : 					require_once('sections/administrator/users_panel.php'); 					break;
 	}
 	?>
 	</div>

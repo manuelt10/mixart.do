@@ -14,7 +14,7 @@
 					<span><?php echo $p->status == 1 ? "Visible" : "Invisible" ?></span>
 					<span>
 						<a href="?form=add_img_project&id=<?php echo $p->idprojects ?>">Add images</a>
-						
+						<a href="?form=esp_proj_img&id=<?php echo $p->idprojects ?>">Add Special Images</a>
 					</span>
 				</div>
 				<?php
