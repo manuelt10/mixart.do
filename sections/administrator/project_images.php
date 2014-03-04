@@ -1,6 +1,6 @@
-<!-- <script type="text/javascript" src="scripts/jquery-1.10.2.js"></script> -->
 <?php 
 $project_data = $db->selectRecord('project', NULL, array('idprojects' => $_GET["id"]));
+
 ?>
 <style>
 	.actualImage{
@@ -30,7 +30,7 @@ $project_data = $db->selectRecord('project', NULL, array('idprojects' => $_GET["
 
 <div>
 	<?php 
-	$projectImages = $db->selectRecord('project_images',NULL,array('idproject' => $_GET["id"]));
+	$projectImages = $db->selectRecord('project_images',NULL,array('idproject' => $_GET["id"], 'special_image' => 0));
 	foreach($projectImages->data as $pi)
 	{
 		?>
@@ -44,6 +44,7 @@ $project_data = $db->selectRecord('project', NULL, array('idprojects' => $_GET["
 </div>
 
 <script>
+//Remove image
 	$('.projectImage').click(function(){
 		var idproj = $(this).siblings('.idproject_image').val();
 		$(this).parent('div').remove();
@@ -51,10 +52,7 @@ $project_data = $db->selectRecord('project', NULL, array('idprojects' => $_GET["
 			type : "POST",
 			url : "functions/administrator/projects/remove_image.php",
 			data : {id : idproj, idproject : <?php echo $_GET["id"] ?>}
-		}).done(function(html)
-		{
-			alert(html);
-		})
+		});
 	});
 </script>
 <script type="text/javascript">

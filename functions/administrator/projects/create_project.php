@@ -97,7 +97,7 @@ if(!empty($_POST))
 			'name' => $projectName,
 			'idproject_type' => $_POST["projectType"],
 			'folder' => $projectFolder,
-			'logo' => $imageName,
+			'logo' => $imageName . '.' . $ext,
 			'description' => $projectDescription,
 			'note' => $projectNote,
 			'status' => $status,

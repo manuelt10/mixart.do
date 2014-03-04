@@ -13,7 +13,6 @@ spl_autoload_register('autoLoader');
 if(!empty($_POST["idproject"]) and !empty($_POST["id"]) and !empty($session["iduser"]))
 {
 	
-	print_r($_POST);
 	/*Variable declaration*/
 	$db = new mysqlManager();
 	$path = '../../../images/';
@@ -26,6 +25,6 @@ if(!empty($_POST["idproject"]) and !empty($_POST["id"]) and !empty($session["idu
 	unlink($path . $project->data[0]->folder . '/thumb100/' . $project_image->data[0]->image);
 	
 	/*Delete image from database*/
-	$db->deleteRecord('project_image', array("idproject_image" => $_POST["id"]));
+	$db->deleteRecord('project_images', array("idproject_image" => $_POST["id"]));
 }
 ?>

@@ -1,3 +1,6 @@
+<?php 
+$project_data = $db->selectRecord('project', NULL, array('idprojects' => $_GET["id"]));
+?>
 <style>
 	.actualImage{
 			width: 480px;
@@ -14,7 +17,7 @@
 </style>
 
 
-<form action="#" method="post" enctype="multipart/form-data">
+<form action="functions/administrator/projects/upload_esp_image.php" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="idproject" value="<?php echo $_GET["id"]; ?>">
 	<input type="text" name="imageWidth" value="1400" readonly>
 	<input type="number" name="imageHeight" class="imageHeight" value="1800" min="1800" max="2700"> 
@@ -27,7 +30,32 @@
 	<button type="submit">Send</button>
 </form>
 
-
+<div>
+	<?php 
+	$projectImages = $db->selectRecord('project_images',NULL,array('idproject' => $_GET["id"], 'special_image' => 1));
+	foreach($projectImages->data as $pi)
+	{
+		?>
+		<div>
+			<input type="hidden" class="idproject_image" value="<?php echo $pi->idproject_image; ?>">
+			<img src="images/<?php echo $project_data->data[0]->folder ?>/thumb400/<?php echo $pi->image; ?>" class="projectImage">
+		</div>
+		<?php
+	}
+	?>
+</div>
+<script>
+//Remove image
+	$('.projectImage').click(function(){
+		var idproj = $(this).siblings('.idproject_image').val();
+		$(this).parent('div').remove();
+		$.ajax({
+			type : "POST",
+			url : "functions/administrator/projects/remove_image.php",
+			data : {id : idproj, idproject : <?php echo $_GET["id"] ?>}
+		});
+	});
+</script>
 <script>
 	$('.imageHeight').on('change keyup', function(){
 		$('.actualImage').empty();
