@@ -35,6 +35,7 @@ require_once('templates/admhea.php');
 		case 'esp_proj_img' : 		require_once('sections/administrator/project_special_image.php');			break;
 		case 'profile' : 			require_once('sections/administrator/profile/profile.php'); 				break;
 		case 'change_profile' : 	require_once('sections/administrator/profile/change_profile.php');			break;
+		case 'change_project' : 	require_once('sections/administrator/change_project.php');			break;
 		default : 					require_once('sections/administrator/users_panel.php'); 					break;
 	}
 	?>

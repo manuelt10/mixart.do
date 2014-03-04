@@ -15,6 +15,7 @@
 					<span>
 						<a href="?form=add_img_project&id=<?php echo $p->idprojects ?>">Add images</a>
 						<a href="?form=esp_proj_img&id=<?php echo $p->idprojects ?>">Add Special Images</a>
+						<a href="?form=change_project&id=<?php echo $p->idprojects ?>">Change Project</a>
 					</span>
 				</div>
 				<?php
