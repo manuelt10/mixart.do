@@ -86,6 +86,7 @@ if(!empty($_POST))
 			'name' => $projectName,
 			'idproject_type' => $_POST["projectType"],
 			'logo' => $logoImage,
+			'url' => $_POST["projectUrl"],
 			'description' => $projectDescription,
 			'note' => $projectNote,
 			'status' => $status,

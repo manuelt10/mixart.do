@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,19 +31,20 @@
 		?>
 		<div>
 			<span>Welcome, <?php echo $user->getName(); ?></span>
-			<a href="admin">Admin</a>
-			<a href="functions/logout">Get out</a>
+			<a href="admin.php">Admin</a>
+			<a href="functions/logout.php">Get out</a>
 		</div>
 		<?php
 		}
 		?>
+		
 		<div class="menuWrap landAnim">
 			<div class="menu">
 				<span class="itmBg"></span>
-				<a href="index" class="itm  cont1i" data-color="#FCFCFC" data-sec="1">Info</a>
-				<a href="projects" class="itm cont2i" data-color="#0ac2d2" data-sec="2">Projects</a>
-				<a href="team" class="itm cont3i" data-color="#60d7a9" data-sec="3">Team</a>
-				<a href="contacts" class="itm active cont4i" data-color="#fdc162" data-sec="4">Contact</a>
+				<a href="index.php" class="itm  <?php echo basename($_SERVER['PHP_SELF']) === 'index.php' ? "active" : "" ; ?> cont1i" data-color="#FCFCFC" data-sec="1">Info</a>
+				<a href="projects.php" class="itm <?php echo basename($_SERVER['PHP_SELF']) === 'projects.php' ? "active" : "" ; ?> cont2i" data-color="#0ac2d2" data-sec="2">Projects</a>
+				<a href="team.php" class="itm  cont3i" data-color="#60d7a9" data-sec="3">Team</a>
+				<a href="contacts.php" class="itm  cont4i" data-color="#fdc162" data-sec="4">Contact</a>
 			</div>
 		</div>
 	</div>	

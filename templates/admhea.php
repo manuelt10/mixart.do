@@ -31,8 +31,8 @@
 		?>
 		<div>
 			<span>Welcome, <?php echo $user->getName(); ?></span>
-			<a href="admin">Admin</a>
-			<a href="functions/logout">Get out</a>
+			<a href="admin.php">Admin</a>
+			<a href="functions/logout.php">Get out</a>
 		</div>
 		<?php
 		}
@@ -40,9 +40,9 @@
 		<div class="menuWrap landAnim">
 			<div class="menu">
 				<span class="itmBg"></span>
-				<a href="admin?form=userspanel" class="itm  cont1i" data-color="#FCFCFC" data-sec="1">Users</a>
-				<a href="admin?form=projectpanel" class="itm cont2i" data-color="#0ac2d2" data-sec="2">Projects</a>
-				<a href="admin?form=profile" class="itm cont3i" data-color="#60d7a9" data-sec="3">Profile</a>
+				<a href="admin.php?form=userspanel" class="itm  cont1i" data-color="#FCFCFC" data-sec="1">Users</a>
+				<a href="admin.php?form=projectpanel" class="itm cont2i" data-color="#0ac2d2" data-sec="2">Projects</a>
+				<a href="admin.php?form=profile" class="itm cont3i" data-color="#60d7a9" data-sec="3">Profile</a>
 				<a href="#" class="itm active cont4i" data-color="#fdc162" data-sec="4">Opcion4</a>
 			</div>
 		</div>

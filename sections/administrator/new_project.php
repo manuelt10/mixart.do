@@ -4,6 +4,7 @@
 	<fieldset>
 	<label>Name:</label><input type="text" name="projectName" class="projectName" maxlength="100" required><?php echo $session["error"]["projectName"]; ?><br>
 	<label>Folder:</label> <input type="text" name="projectFolder" class="folderName" readonly="true"><br>
+	<label>URL:</label><input type="text" name="projectUrl" class="projectUrl" maxlength="250"><br>
 	<label>Description:</label><textarea id="projectDescription" name="projectDescription"></textarea><br>
 	<label>Note:</label><textarea id="projectNote" name="projectNote"></textarea><br>
 	<label>Logo:</label><input type="file" name="projectLogo"><br>
@@ -53,5 +54,5 @@
 </script>
 <script type="text/javascript">
 	CKEDITOR.replace( 'projectDescription' );
-	CKEDITOR.replace( 'projectNote' );
+	//CKEDITOR.replace( 'projectNote' );
 </script>

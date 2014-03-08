@@ -7,6 +7,7 @@ $project_data = $db->selectRecord('project',NULL,array('idprojects' => $_GET["id
 	<fieldset>
 	<label>Name:</label><input type="text" name="projectName" value="<?php echo $project_data->data[0]->name ?>" class="projectName" maxlength="100" required><?php echo $session["error"]["projectName"]; ?><br>
 	<label>Description:</label><textarea id="projectDescription" name="projectDescription"><?php echo $project_data->data[0]->description ?></textarea><br>
+	<label>URL:</label><input type="text" name="projectUrl" class="projectUrl" maxlength="250" value="<?php echo $project_data->data[0]->url ?>"><br>
 	<label>Note:</label><textarea id="projectNote" name="projectNote"><?php echo $project_data->data[0]->note ?></textarea><br>
 	<label>Logo:</label><input type="file" name="projectLogo"><br>
 	<?php 
@@ -62,5 +63,5 @@ $project_data = $db->selectRecord('project',NULL,array('idprojects' => $_GET["id
 </form>
 <script type="text/javascript">
 	CKEDITOR.replace( 'projectDescription' );
-	CKEDITOR.replace( 'projectNote' );
+	//CKEDITOR.replace( 'projectNote' );
 </script>

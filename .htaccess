@@ -2,10 +2,13 @@ RewriteEngine On
 
 RewriteBase /mix/
 
+RewriteRule ^([A-Za-z0-9-]+)/$   user.php?username=$1 [NC]
+
 #Allow the .php files to be seen without the extension
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php
+
 
 
 #See .html url as .php url (www.example.com/h.html => www.example.com/h.php)
