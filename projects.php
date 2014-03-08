@@ -10,10 +10,10 @@ function autoLoader($class)
 }
 spl_autoload_register('autoLoader');
 
-
+$db = new mysqlManager();
 if(!empty($session["iduser"]))
 {
-	$db = new mysqlManager();
+	
 	$data = $db->selectRecord('user',NULL,Array("iduser" => $session["iduser"]));
 	
 	$user = new user($data->data[0]);
