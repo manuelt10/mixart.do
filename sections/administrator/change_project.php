@@ -56,7 +56,7 @@ $project_data = $db->selectRecord('project',NULL,array('idprojects' => $_GET["id
 		}
 		?>
 	</select>
-	<label>Status:</label><input type="checkbox" name="projectStatus" value="1">
+	<label>Status:</label><input type="checkbox" name="projectStatus" value="1" <?php echo $project_data->data[0]->status === '1' ? "checked" : ""; ?>>
 	<br>
 	<button type="submit">Change Project</button>
 </form>
