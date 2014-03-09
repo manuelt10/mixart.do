@@ -5,6 +5,7 @@ class user{
 	private $mail;
 	private $user_type;
 	private $name;
+	private $website;
 	private $description;
 	private $status;
 	private $image;
@@ -54,6 +55,14 @@ class user{
 	public function getName()
 	{
 		return $this->name;
+	}
+	public function setWebsite($website)
+	{
+		$this->website = $website;
+	}
+	public function getWebsite()
+	{
+		return $this->website;
 	}
 	public function setDescription($description)
 	{
@@ -135,6 +144,7 @@ class user{
 		$this->setMail($object->mail);
 		$this->setUserType($object->user_type);
 		$this->setName($object->name);
+		$this->setWebsite($object->website);
 		$this->setDescription($object->description);
 		$this->setUserStatus($object->name);
 		$this->setImage($object->image);

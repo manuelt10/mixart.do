@@ -18,7 +18,7 @@ if(!empty($_POST["username"]) or !empty($_POST["password"]))
 		session_start();
 		$_SESSION["iduser"] = $data->data[0]->iduser;
 		session_write_close();
-		header("Location: ../index");
+		header("Location: ../index.php");
 	}
 	else
 	{

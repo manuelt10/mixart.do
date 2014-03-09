@@ -13,7 +13,7 @@
 	
 ?>
 
-<form method="POST" action="functions/login">
+<form method="POST" action="functions/login.php">
 	<fieldset>
 		<legend>Acceso de usuarios</legend>
 		<input type="text" name="username"><br>
