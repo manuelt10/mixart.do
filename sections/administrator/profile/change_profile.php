@@ -15,6 +15,7 @@
 <script src="scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 <div>
 	<form>
+		<legend>Update Profile</legend>
 		<label>Name: </label><input type="text" name="memberName" value="<?php echo $user->getName(); ?>"><br>
 		<label>Website: </label><input type="text" name="website" value="<?php echo $user->getWebsite(); ?>"><br>
 		<label>Profile Image: </label><input type="file" name="memberImage" class="imageUploader"><br>
@@ -41,6 +42,13 @@
 		<label>Description: </label>
 		<textarea name="memberDescription" id="memberDescription"><?php echo $user->getDescription(); ?></textarea><br>
 		<button type="submit">Send</button>
+	</form>
+	<form method="post" action="functions/administrator/users/change_pass.php">
+		<legend>Change Password</legend>
+		<label>Old Password:</label><input type="password" name="oldpass"><br>
+		<label>New Password:</label><input type="password" name="newpass1"><br>
+		<label>Repeat Password:</label><input type="password" name="newpass2"><br>
+		<button type="submit">Change</button>
 	</form>
 </div>
 
