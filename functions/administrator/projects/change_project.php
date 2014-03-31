@@ -109,7 +109,7 @@ if(!empty($_POST))
 		
 		session_write_close();
 		/*Go back to the project panel*/
-		header("Location: ../../../admin?form=projectpanel" );
+		header("Location: ../../../admin.php?form=projectpanel" );
 	}
 
 	

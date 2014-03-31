@@ -14,7 +14,7 @@
 </style>
 <script src="scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 <div>
-	<form>
+	<form method="post" action="functions/administrator/users/update_user.php" enctype="multipart/form-data">
 		<legend>Update Profile</legend>
 		<label>Name: </label><input type="text" name="memberName" value="<?php echo $user->getName(); ?>"><br>
 		<label>Website: </label><input type="text" name="website" value="<?php echo $user->getWebsite(); ?>"><br>
@@ -28,8 +28,8 @@
 		if($user->getImage() !== NULL)
 		{
 			?>
-			<div class="userImage">
-				<img src="images/users/thumb400/<?php echo $user->getImage(); ?>">
+			<div class="usrImage">
+				<img src="images/users/<?php echo $user->getImage(); ?>">
 			</div>
 			<?php
 		}
@@ -65,13 +65,13 @@
 				image.src = e.target.result;
 				
 				image.onload = function(){
-					if((this.width >= 565) && (this.height >= 465))
+					if((this.width >= 400) && (this.height >= 400))
 		        	{
 			            $('.userImage').html('<img src="' + e.target.result + '">');
 			        }
 			        else
 			        {
-			        	alert('The image dimension need to be 565x465.');
+			        	alert('The image dimension need to be 400x400.');
 			        	var imageUploader = $('.imageUploader');
 			        	imageUploader.replaceWith( imageUploader = imageUploader.clone( true ) );
 			        	$('.projImage').empty();

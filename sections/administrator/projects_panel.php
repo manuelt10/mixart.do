@@ -5,7 +5,7 @@
 	</div>
 	<div>
 		<?php 
-			$project = $db->selectRecord('project');
+			$project = $db->selectRecord('project',NULL,NULL,Array('created_date' => 'desc'));
 			foreach($project->data as $p)
 			{
 				?>
