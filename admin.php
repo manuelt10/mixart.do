@@ -22,7 +22,7 @@ if(!empty($session["iduser"]))
 }
 require_once('templates/admhea.php');
 ?>
-
+<link href="styles/bootstrap.min.css" rel="stylesheet">
 	<div class="cont1 sections shown" data-id="1">
 	<?php 
 	switch($_GET["form"])
@@ -40,7 +40,7 @@ require_once('templates/admhea.php');
 	}
 	?>
 	</div>
-
+<script src="scripts/bootstrap.min.js"></script>
 	
 
 	

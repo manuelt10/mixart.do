@@ -1,22 +1,29 @@
 <div class="userPanelWrapper">
-	<a href="admin?form=newuser">New User</a>
-	<div class="userHeader">
-		<span>Username</span><span>Name</span><span>Mail</span>
-	</div>
-	<div>
+	<legend>
+		User Panel
+	</legend>
+	<a href="admin.php?form=newuser" class="btn btn-default">New User</a>
+	<table class="table">
+		<thead>
+			<th><strong>Username</strong></th>
+			<th><strong>Name</strong></th>
+			<th><strong>Mail</strong></th>
+		</thead>
 		<?php 
 		$record = $db->selectRecord('user');
 		foreach($record->data as $rec)
 		{
 			?>
-			<div>
-				<span><?php echo $rec->username ?></span>
-				<span><?php echo $rec->name ?></span>
-				<span><?php echo $rec->mail ?></span>
-			</div>
+			<tbody>
+				<td><?php echo $rec->username ?></td>
+				<td><?php echo $rec->name ?></td>
+				<td><?php echo $rec->mail ?></td>
+			</tbody>
 			<?php
 		}
 		
 		?>
-	</div>
+		
+	</table>
+	
 </div>
