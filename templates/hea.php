@@ -44,7 +44,7 @@
 				<a href="index.php" class="itm  <?php echo basename($_SERVER['PHP_SELF']) === 'index.php' ? "active" : "" ; ?> cont1i" data-color="#FCFCFC" data-sec="1">Info</a>
 				<a href="projects.php" class="itm <?php echo basename($_SERVER['PHP_SELF']) === 'projects.php' ? "active" : "" ; ?> cont2i" data-color="#0ac2d2" data-sec="2">Projects</a>
 				<a href="team.php" class="itm  cont3i" data-color="#60d7a9" data-sec="3">Team</a>
-				<a href="contacts.php" class="itm  cont4i" data-color="#fdc162" data-sec="4">Contact</a>
+				<a href="contact.php" class="itm <?php echo basename($_SERVER['PHP_SELF']) === 'contact.php' ? "active" : "" ; ?> cont4i" data-color="#fdc162" data-sec="4">Contact</a>
 			</div>
 		</div>
 	</div>	

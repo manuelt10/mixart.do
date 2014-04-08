@@ -136,7 +136,7 @@ class stringManager
 	 */
 	public function textForUrl($text)
 	{
-		$text = $this->remove_accents($text);
+		$text = $this->removeAccents($text);
 		$text = str_replace("-", " ", $text);
 		$text = preg_replace('/\s\s+/', ' ', $text);
 		$text = str_replace(" ", "-", $text);
