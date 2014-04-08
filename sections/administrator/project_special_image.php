@@ -27,7 +27,7 @@ $project_data = $db->selectRecord('project', NULL, array('idprojects' => $_GET["
 	</div>
 	<input type="hidden" class="coorX" name="x" value="0">
 	<input type="hidden" class="coorY" name="y" value="0">
-	<button type="submit">Send</button>
+	<button type="submit" class="btn btn-default" >Send</button>
 </form>
 
 <div>

@@ -1,5 +1,5 @@
 <div class="userPanelWrapper">
-	<a href="admin?form=newproject">New Project</a>
+	<a href="admin.php?form=newproject">New Project</a>
 	<table class="table">
 		<thead>
 			<th><strong>Project Name</strong></th>

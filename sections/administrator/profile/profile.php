@@ -4,13 +4,14 @@
 	</div>
 	<div class="proilePic">
 	<?php 
-	if((file_exists('images/users/thumb400/' . $user->getImage())) and ($user->getImage() !== NULL))
+	if($user->getImage() !== NULL)
 	{
 		?>
-		<img alt="<?php echo $user->getName(); ?>" src="images/users/thumb400/<?php echo $user->getImage(); ?>">
+		<img alt="<?php echo $user->getImage(); ?>" src="images/users/<?php echo $user->getImage(); ?>">
 		<?php
 	}
 	?>
+	
 	</div>
 	<div class="profileData">
 		<span><?php echo $user->getName() ?></span><br>

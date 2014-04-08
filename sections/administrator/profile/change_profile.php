@@ -16,8 +16,8 @@
 <div>
 	<form method="post" action="functions/administrator/users/update_user.php" enctype="multipart/form-data">
 		<legend>Update Profile</legend>
-		<label>Name: </label><input type="text" name="memberName" value="<?php echo $user->getName(); ?>"><br>
-		<label>Website: </label><input type="text" name="website" value="<?php echo $user->getWebsite(); ?>"><br>
+		<label>Name: </label><input type="text" class="form-control" name="memberName" value="<?php echo $user->getName(); ?>"><br>
+		<label>Website: </label><input type="text" class="form-control" name="website" value="<?php echo $user->getWebsite(); ?>"><br>
 		<label>Profile Image: </label><input type="file" name="memberImage" class="imageUploader"><br>
 		<input type="hidden" class="coorX" name="x" value="0">
 		<input type="hidden" class="coorY" name="y" value="0">
@@ -35,20 +35,20 @@
 		}
 		?>
 		
-		<label>Phone: </label><input type="text" name="phone" value="<?php echo $user->getPhone(); ?>"><br>
-		<label>Cellphone: </label><input type="text" name="cellPhone" value="<?php echo $user->getCellPhone(); ?>"><br>
+		<label>Phone: </label><input type="text" class="form-control" name="phone" value="<?php echo $user->getPhone(); ?>"><br>
+		<label>Cellphone: </label><input type="text" class="form-control" name="cellPhone" value="<?php echo $user->getCellPhone(); ?>"><br>
 		
 		
 		<label>Description: </label>
 		<textarea name="memberDescription" id="memberDescription"><?php echo $user->getDescription(); ?></textarea><br>
-		<button type="submit">Send</button>
+		<button type="submit" class="btn btn-default" >Update User Info</button>
 	</form>
 	<form method="post" action="functions/administrator/users/change_pass.php">
 		<legend>Change Password</legend>
-		<label>Old Password:</label><input type="password" name="oldpass"><br>
-		<label>New Password:</label><input type="password" name="newpass1"><br>
-		<label>Repeat Password:</label><input type="password" name="newpass2"><br>
-		<button type="submit">Change</button>
+		<label>Old Password:</label><input type="password" class="form-control" name="oldpass"><br>
+		<label>New Password:</label><input type="password" class="form-control" name="newpass1"><br>
+		<label>Repeat Password:</label><input type="password" class="form-control" name="newpass2"><br>
+		<button type="submit" class="btn btn-default" > Change</button>
 	</form>
 </div>
 

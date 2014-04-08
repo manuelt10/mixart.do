@@ -2,11 +2,11 @@
 <script src="scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 <form method="post" action="<?php echo htmlspecialchars('functions/administrator/projects/create_project.php');?>" enctype="multipart/form-data">
 	<fieldset>
-	<label>Name:</label><input type="text" name="projectName" class="projectName" maxlength="100" required><?php echo $session["error"]["projectName"]; ?><br>
-	<label>Folder:</label> <input type="text" name="projectFolder" class="folderName" readonly="true"><br>
-	<label>URL:</label><input type="text" name="projectUrl" class="projectUrl" maxlength="250"><br>
+	<label>Name:</label><input class="form-control" type="text" name="projectName" class="projectName" maxlength="100" required><?php echo $session["error"]["projectName"]; ?><br>
+	<label>Folder:</label> <input class="form-control" type="text" name="projectFolder" class="folderName" readonly="true"><br>
+	<label>URL:</label><input class="form-control" type="text" name="projectUrl" class="projectUrl" maxlength="250"><br>
 	<label>Description:</label><textarea id="projectDescription" name="projectDescription"></textarea><br>
-	<label>Note:</label><textarea id="projectNote" name="projectNote"></textarea><br>
+	<label>Note:</label><textarea class="form-control" id="projectNote" name="projectNote"></textarea><br>
 	<label>Logo:</label><input type="file" name="projectLogo"><br>
 	<label>Project Members:</label>
 	<div>
@@ -26,7 +26,7 @@
 	</div>
 	<?php echo $session["error"]["projectUser"]; ?><br>
 	<label>Project Type:</label>
-	<select name="projectType">
+	<select class="form-control" name="projectType">
 		<?php 
 		$proj_type = $db->selectRecord('project_type');
 		foreach($proj_type->data as $pt)
@@ -39,7 +39,7 @@
 	</select>
 	<label>Status:</label><input type="checkbox" name="projectStatus" value="1">
 	<br>
-	<button type="submit">Create Project</button>
+	<button class="btn btn-default" type="submit">Create Project</button>
 </form>
 
 
